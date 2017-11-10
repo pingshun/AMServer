@@ -1,0 +1,74 @@
+CREATE DATABASE AutoMaster DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE TABLE am_user (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE am_backup (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    guid VARCHAR(36) NOT NULL,
+    car_name VARCHAR(32) NOT NULL,
+    backup_string TEXT,
+    update_time BIGINT NOT NULL,
+
+    PRIMARY KEY (id),
+    CONSTRAINT FK_BACKUP_USER_ID_2_USER_ID FOREIGN KEY (user_id) REFERENCES am_user (id)
+);
+
+CREATE TABLE car (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    guid VARCHAR(36) NOT NULL,
+    name VARCHAR(32) NOT NULL,
+    plate_num VARCHAR(32),
+    add_time BIGINT NOT NULL,
+    brand VARCHAR(32),
+    mileage INT,
+    vin VARCHAR(32),
+    engine_id VARCHAR(32),
+    last_update BIGINT,
+    remark VARCHAR(255),
+
+    PRIMARY KEY (id),
+    CONSTRAINT FK_CAR_USER_ID_2_USER_ID FOREIGN KEY (user_id) REFERENCES am_user (id)
+);
+
+CREATE TABLE service_item (
+    id INT NOT NULL AUTO_INCREMENT,
+    car_id INT NOT NULL,
+    type INT,
+    name VARCHAR(32) NOT NULL,
+    mileage_period INT,
+    time_period INT,
+
+    PRIMARY KEY (id),
+    CONSTRAINT FK_SERVICE_ITEM_2_CAR_ID FOREIGN KEY (car_id) REFERENCES car (id)
+);
+
+CREATE TABLE service_record(
+    id INT NOT NULL AUTO_INCREMENT,
+    car_id INT NOT NULL,
+    mileage INT NOT NULL,
+    finish_time BIGINT,
+    service_store VARCHAR(255),
+    add_time BIGINT,
+    remark VARCHAR(255),
+
+    PRIMARY KEY (id),
+    CONSTRAINT FK_SERVICE_RECORD_2_CAR_ID FOREIGN KEY (car_id) REFERENCES car (id)
+);
+
+CREATE TABLE item2record(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    item_id INT,
+    record_id INT,
+
+    PRIMARY KEY (id),
+    CONSTRAINT FK_ITEM2RECORD_2_ITEM_ID FOREIGN KEY (item_id) REFERENCES service_item (id),
+    CONSTRAINT FK_ITEM2RECORD_2_RECORD_ID FOREIGN KEY (record_id) REFERENCES service_record (id)
+);

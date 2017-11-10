@@ -1,0 +1,36 @@
+<% include ./../header.html %>
+
+<body class="login" ng-controller="LoginController">
+	<div id="container">
+		<section class="login-box">
+			<form class="login-form" method="post">
+				<div class="login-form-top">
+					<div class="email-wrap">
+					  	<span class="glyphicon glyphicon-user" aria-hidden="true">
+					    	<input id="userName" class="login-form-input" ng-model="user_name" />
+						</span>
+					</div>
+					<div class="psw-wrap">
+					  	<span class="glyphicon glyphicon-lock" aria-hidden="true">
+					    	<input id="password" type="password" class="login-form-input" ng-model="password" />
+						</span>
+					</div>
+					<div>
+						<a class="btn btn-blue" id="logIn" role="button" ng-click="do_login()">Log in</a>
+					</div>
+				</div>
+
+				<div class="meta" ng-show="failed_message">
+					{{failed_message}} &nbsp; <a class="forgotten">Forgotten password?</a>
+				</div>
+				<div class="meta">
+				  	<a ng-click="register()">注册</a>
+				</div>
+
+			</form>
+			
+		</section>
+	</div>
+</body>
+
+<% include ./../footer.html %>

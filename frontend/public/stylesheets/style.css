@@ -1,0 +1,144 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+
+
+.login {
+  color: #7d878a;
+  background-color: #242628;
+}
+#container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.login-box {
+  display: table;
+  max-width: 530px;
+  height: 90%;
+  padding: 0;
+  margin: 0 auto;
+}
+.login-form {
+  display: table-cell;
+  max-width: 530px;
+  color: #a5acae;
+  vertical-align: middle;
+}
+.login-form span {
+  padding: 4px 12px;
+  background-color: #3b3f42;
+}
+.login-form span input {
+  height: 30px;
+  margin-left: 12px;
+}
+.psw-wrap {
+  position: relative;
+  float: left;
+  margin: 0 0 3px 0;
+}
+.email-wrap {
+  position: relative;
+  float: left;
+  margin: 0 8px 3px 0;
+}
+.login-form-input {
+  list-style: none;
+  background: 0;
+  border: none;
+}
+.btn.btn-blue {
+  height: 38px;
+  margin-left: 11px;
+  line-height: 24px;
+  color: #fff;
+  background-color: #2f8cde;
+}
+.clear {
+  display: block;
+  clear: both;
+  content: ' ';
+}
+.meta {
+  clear: both;
+}
+.forgotten {
+  color: #a5acae;
+}
+.main {
+  color: #a5acae;
+  background-color: #242628;
+}
+.main-left {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  color: #eee;
+  border: 1px solid red;
+}
+.main-left-ul {
+  padding-left: 0;
+  list-style: none;
+}
+.main-left-ul li {
+  float: left;
+  padding: 5px 12px;
+  font-size: 25px;
+}
+.main-left-ul li:hover {
+  background-color: #e78170;
+}
+.main-left-ul li:first-of-type {
+  background-color: #e78170;
+}
+.dyn-img-box {
+  position: absolute;
+  width: 22%;
+  height: 100%;
+  margin-left: 50px;
+  background: url("../../images/bak-1.jpg") center center no-repeat;
+  border: 1px solid yellow;
+}
+.dyn-img-box:after {
+  display: block;
+  clear: both;
+  content: ' ';
+}
+.dyn-content-box {
+  margin-left: 26%;
+}
+.box-tit {
+  height: 47px;
+  padding-top: 20px;
+  margin-right: 268px;
+  border-bottom: 3px solid #2f2f2f;
+}
+.dyn-box-tit {
+  list-style: none;
+}
+.dyn-box-tit li {
+  float: left;
+  width: 54px;
+  padding-left: 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.dyn-box-tit li:hover {
+  cursor: pointer;
+  border-bottom: 2px solid;
+}
+li.selecter {
+  border-bottom: 2px solid;
+}
+/*# sourceMappingURL=bootstrap-theme.css.map */

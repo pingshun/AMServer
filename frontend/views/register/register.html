@@ -1,0 +1,57 @@
+<% include ./../header.html %>
+<body class="login" ng-controller="RegisterController">
+    <div ng-show="!register_success" class="container-fluid">
+        <form class="form-horizontal" method="post" name="regForm" novalidate>
+            <fieldset>
+                <legend>用户注册</legend>
+                <div class="control-group">
+                    <label class="control-label" for="username">用户名</label>
+                    <div class="controls">
+                        <input type="text" class="input-xlarge" id="username" name="username" ng-model="user_name" ng-minlength="4" ng-maxlength="20" ng-pattern="RE" required>
+                        <span style="color:red" ng-show="regForm.username.$dirty && regForm.username.$invalid">
+                            <span ng-show="regForm.username.$error.required">请输入用户名</span>
+                            <span ng-show="regForm.username.$error.maxlength">输入超长</span>
+                            <span ng-show="regForm.username.$error.minlength">至少需要4个字符</span>
+                            <span ng-show="regForm.username.$error.pattern">用户名只支持字母,数字,'-'和'_'</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="password">密码</label>
+                    <div class="controls">
+                        <input type="password" class="input-xlarge" id="password" name="password" ng-model="password" required>
+                        <span style="color:red" ng-show="regForm.password.$dirty && regForm.password.$invalid">
+                            <span ng-show="regForm.password.$error.required">请输入密码</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="retype">重新输入</label>
+                    <div class="controls">
+                        <input type="password" class="input-xlarge" id="retype" name="retype" ng-model="retype">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="email">邮箱</label>
+                    <div class="controls">
+                        <input type="email" class="input-xlarge" id="email" name="email" ng-model="email" required>
+                        <span style="color:red" ng-show="regForm.email.$dirty && regForm.email.$invalid">
+                            <span ng-show="regForm.email.$error.required">请输入邮箱地址</span>
+                            <span ng-show="regForm.email.$error.email">邮箱格式不正确</span>
+                        </span>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <div ng-show="failed_message">{{failed_message}}</div>
+        <br />
+        <div class="form-actions">
+            <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-primary" ng-click="do_register()">注册</button>
+        </div>
+    </div>
+    <div ng-show="register_success">
+        注册成功,点击<a href="/login">这里</a>登陆.
+    </div>
+</body>
+<% include ./../footer.html %>
