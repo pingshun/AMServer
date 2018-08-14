@@ -28,7 +28,7 @@ logger.setLevel('INFO');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'frontend/views'));
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

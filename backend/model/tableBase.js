@@ -1,9 +1,4 @@
-// 实现与MySQL交互
-var mysql 		= require('mysql');
-var $conf 		= require('../conf/db');
 var log 		= require('log4js').getLogger("db_model");
-// 使用连接池，提升性能
-var pool        = mysql.createPool($conf.mysql);
 var dbOperator      = require('../utils/db/dbOperator');
 
 module.exports = TableBase;
@@ -45,6 +40,3 @@ TableBase.getsByFields = function (fields, cb) {
         }
     });
 }
-
-
-
